@@ -1,0 +1,15 @@
+canny edge detection
+sift/serf 
+
+user input cut thresholds/ automatic thresholds
+
+research on pre-existing literature and opencv packages
+
+two windows: one for canny edge detection, one for colour histogram, then view change in those to see when an appropriate time to cut would be
+
+run experiments to validate threshold conjectures
+
+https://www.researchgate.net/publication/4290551_Shot_Boundary_Detection_by_a_Hierarchical_Supervised_Approach
+A Survey on Visual Content-Based Video, Indexing and Retrieval, Weiming Hu, Senior Member, IEEE, Nianhua Xie, Li Li, Xianglin Zeng, and Stephen Maybank
+
+https://www-nlpir.nist.gov/projects/tvpubs/tvpapers03/ramonlull.paper.pdf
