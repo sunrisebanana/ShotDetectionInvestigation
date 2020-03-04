@@ -17,3 +17,5 @@ A Survey on Visual Content-Based Video, Indexing and Retrieval, Weiming Hu, Seni
 2007
 
 https://www-nlpir.nist.gov/projects/tvpubs/tvpapers03/ramonlull.paper.pdf
+
+so far, MSE gives way too unpredictable numbers to be reliable. SSIM seems to be somewhat consistent for the edges with some issues, but the results with the histograms are shaky.
