@@ -75,11 +75,11 @@ class App():
             if not first:
                 prevFrameH = copy.deepcopy(h)
                 h = cv.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-                #histChange = cv.compareHist(prevFrameH, h, method=0)
-                histChange = ssim(prevFrameH, h)
+                histChange = cv.compareHist(prevFrameH, h, method=0)*100
+                #histChange = ssim(prevFrameH, h)
 
                 prevEdges = copy.deepcopy(edges)
-                edges = cv.Canny(frame,100,200)
+                edges = cv.Canny(frame,150,200)
                 #edgeChange = cv.compareHist(prevEdges, edges, method=0)
                 edgeChange = ssim(prevEdges, edges)
                 cv.putText(edges, str(f) + " " + str(edgeChange), 
@@ -115,8 +115,8 @@ class App():
             #     print(str(f) + " edge " + str(biggestEdgeChange))
             if (histChange < 0.5):
                 print(str(f) + " hist " + str(histChange))
-            # if (edgeChange < 0.7):
-                # print(str(f) + " edge " + str(edgeChange))
+            if (edgeChange < 0.7):
+                print(str(f) + " edge " + str(edgeChange))
 
             ch = cv.waitKey(1)
             if ch == 27:
