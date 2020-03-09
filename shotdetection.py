@@ -14,6 +14,7 @@ from skimage.metrics import structural_similarity as ssim
 import copy
 import numpy as np
 import cv2 as cv
+import time
 
 # built-in modules
 import sys
@@ -121,6 +122,8 @@ class App():
             ch = cv.waitKey(1)
             if ch == 27:
                 break
+            if ch == ord(' '):
+                time.sleep(1)
             f += 1
         print('Done')
 
