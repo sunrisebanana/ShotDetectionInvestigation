@@ -59,11 +59,17 @@ class App():
             fn = 0
         cam = cv.VideoCapture("test.mp4")
         f = 0
-        biggestHistChange = 0
-        biggestEdgeChange = 0
+
+        successesHist, falsePositivesHist, successesEdge, falsePositivesEdge = 0,0,0,0
+        with open('cuts.txt') as file:
+            cuts = file.read().split(',')
+            cuts = list(map(int, cuts))
         while True:
-            _flag, frame = cam.read()
-            cv.imshow('camera', frame)
+            try:
+                _flag, frame = cam.read()
+                cv.imshow('camera', frame)
+            except:
+                break
 
             small = cv.pyrDown(frame)
 
@@ -77,8 +83,9 @@ class App():
                 prevFrameH = copy.deepcopy(h)
                 h = cv.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
                 histChange = cv.compareHist(prevFrameH, h, method=3)
-                #histChange = ssim(prevFrameH, h)
-
+                # histChange = ssim(prevFrameH, h)
+                # histChange = cv.EMD(h, prevFrameH, distType=0)
+                
                 prevEdges = copy.deepcopy(edges)
                 edges = cv.Canny(frame,150,200)
                 #edgeChange = cv.compareHist(prevEdges, edges, method=0)
@@ -116,16 +123,26 @@ class App():
             #     print(str(f) + " edge " + str(biggestEdgeChange))
             if (histChange > 0.5):
                 print(str(f) + " hist " + str(histChange))
+                if cuts.__contains__(f):
+                    successesHist += 1
+                else:
+                    falsePositivesHist += 1
             if (edgeChange < 0.7):
                 print(str(f) + " edge " + str(edgeChange))
-
+                if cuts.__contains__(f):
+                    successesEdge += 1
+                else:
+                    falsePositivesEdge += 1
             ch = cv.waitKey(1)
             if ch == 27:
                 break
             if ch == ord(' '):
                 time.sleep(1)
             f += 1
-        print('Done')
+        print('Histogram successes: ' + str(successesHist) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesHist / len(cuts)))
+        print('Histogram false positives: ' + str(falsePositivesHist))
+        print('Canny Edge successes: ' + str(successesEdge) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesEdge / len(cuts)))
+        print('Canny Edge false positives: ' + str(falsePositivesEdge))
 
 
 if __name__ == '__main__':
