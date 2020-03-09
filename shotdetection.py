@@ -76,7 +76,7 @@ class App():
             if not first:
                 prevFrameH = copy.deepcopy(h)
                 h = cv.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-                histChange = cv.compareHist(prevFrameH, h, method=0)*100
+                histChange = cv.compareHist(prevFrameH, h, method=3)
                 #histChange = ssim(prevFrameH, h)
 
                 prevEdges = copy.deepcopy(edges)
@@ -114,7 +114,7 @@ class App():
             # if (edgeChange > biggestEdgeChange):
             #     biggestEdgeChange = edgeChange
             #     print(str(f) + " edge " + str(biggestEdgeChange))
-            if (histChange < 0.5):
+            if (histChange > 0.5):
                 print(str(f) + " hist " + str(histChange))
             if (edgeChange < 0.7):
                 print(str(f) + " edge " + str(edgeChange))
