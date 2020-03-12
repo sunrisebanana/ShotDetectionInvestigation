@@ -1,4 +1,0 @@
-Histogram successes: 24 out of 28, percentage: 0.8571428571428571
-Histogram false positives: 225
-Canny Edge successes: 12 out of 28, percentage: 0.42857142857142855
-Canny Edge false positives: 355
