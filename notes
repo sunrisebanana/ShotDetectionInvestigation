@@ -15,7 +15,6 @@ A Survey on Visual Content-Based Video, Indexing and Retrieval, Weiming Hu, Seni
  J. Yuan, H. Wang, L. Xiao, W. Zheng, J. Li, F. Lin, and B. Zhang,
 “A formal study of shot boundary detection,” IEEE Trans. Circuits Syst. Video Technol., vol. 17, no. 2, pp. 168–186, Feb.
 2007
-
 https://www-nlpir.nist.gov/projects/tvpubs/tvpapers03/ramonlull.paper.pdf
 
 so far, MSE gives way too unpredictable numbers to be reliable. SSIM seems to be somewhat consistent for the edges with some issues,
@@ -25,3 +24,15 @@ SSIM + global threshold at 0.7 results for canny edge detection:
     fairly consistent when it comes to hard cuts of shots of different things, but gives lots of false positives 
     during camera movement or when theres lots of movement in many places in the shot. false negatives on cuts between 
     scenes of similar content. when cutting from title frame to real shot it is 100%
+
+r. Lienhart, Comparison of Automatic Shot Boundary Detection Algorithms
+http://image.ece.ntua.gr/courses_static/dip/advanced/material/shot/Comparison%20of%20Automatic%20Shot%20Boundary%20Detection%20Algorithms.pdf
+
+https://www.researchgate.net/publication/3308369_Shot-boundary_detection_unraveled_and_resolved_IEEE_Trans_Circ_Syst_Video_Technol
+Shot-Boundary Detection: Unraveled and Resolved?
+Alan Hanjalic, Member, IEEE
+
+https://www.researchgate.net/publication/221259378_Video_Shot_Cut_Detection_using_Adaptive_Thresholding
+Video Shot Cut Detection Using Adaptive
+Thresholding
+Y. Yusoff, W. Christmas and J. Kittler

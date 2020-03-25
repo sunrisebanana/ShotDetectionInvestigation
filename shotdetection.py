@@ -30,16 +30,34 @@ def mse(imageA, imageB):
         # the two images are
         return err
 
+## source: https://github.com/yonatankatz/edge-change-ratio-example/blob/master/ecr.py
+def ECR(edge, edge2, width, height, dilate_rate = 5):
+    safe_div = lambda x,y: 0 if y == 0 else x / y
+    
+    dilated = cv.dilate(edge, np.ones((dilate_rate, dilate_rate)))
+    dilated2 = cv.dilate(edge2, np.ones((dilate_rate, dilate_rate)))
+    inverted = (255 - dilated)
+    inverted2 = (255 - dilated2)
+    log_and1 = (edge2 & inverted)
+    log_and2 = (edge & inverted2)
+    pixels_sum_new = np.sum(edge)
+    pixels_sum_old = np.sum(edge2)
+    out_pixels = np.sum(log_and1)
+    in_pixels = np.sum(log_and2)
+    return max(safe_div(float(in_pixels),float(pixels_sum_new)), safe_div(float(out_pixels),float(pixels_sum_old)))
+    
 class App():
 
     
     def run(self):
         tests = [
-            # "regtest",
+            "regtest",
             "gametest"
         ]
+        testtype1 = "Bhattarcharyya"
+        testtype2 = "ECR"
         for test in tests:
-            file = open(test + "results.txt", "w")
+            file = open(test + "results" + testtype1 + testtype2 + ".txt", "w")
             file.close()
             for threshold in [x/20 for x in range(0, 20)]:
                 hsv_map = np.zeros((180, 256, 3), np.uint8)
@@ -59,12 +77,8 @@ class App():
                 cv.namedWindow('hist', 0)
                 self.hist_scale = 10
 
-                histChange, edgeChange = 0, 1
+                histChange, edgeChange = 0, 0
                 first = True
-                try:
-                    fn = sys.argv[1]
-                except:
-                    fn = 0
                 cam = cv.VideoCapture(test + ".mp4")
                 f = 0
 
@@ -94,10 +108,17 @@ class App():
                         # histChange = ssim(prevFrameH, h)
                         # histChange = cv.EMD(h, prevFrameH, distType=0)
                         
-                        prevEdges = copy.deepcopy(edges)
-                        edges = cv.Canny(frame,150,200)
+                        prevFrame = copy.deepcopy(currFrame)
+                        currFrame = copy.deepcopy(frame)
+                        gray_image = cv.cvtColor(currFrame, cv.COLOR_BGR2GRAY)
+                        edges = cv.Canny(gray_image, 0, 200)
+                        gray_image2 = cv.cvtColor(prevFrame, cv.COLOR_BGR2GRAY)
+                        edge2 = cv.Canny(gray_image2, 0, 200)
+                        edgeChange = ECR(edges, edge2, prevFrame.shape[1], prevFrame.shape[0], )
+
+                        # edges = cv.Canny(frame,150,200)
                         #edgeChange = cv.compareHist(prevEdges, edges, method=0)
-                        edgeChange = ssim(prevEdges, edges)
+                        
                         cv.putText(edges, str(f) + " " + str(edgeChange), 
                             bottomLeftCornerOfText, 
                             font, 
@@ -107,7 +128,8 @@ class App():
                         cv.imshow("edges", edges)
                     else:
                         h = cv.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-                        edges = cv.Canny(frame,100,200)
+                        edges = cv.Canny(frame,0,200)
+                        currFrame = copy.deepcopy(frame)
                         cv.imshow("edges", edges)
 
                     h = np.clip(h*0.005*self.hist_scale, 0, 1)
@@ -135,7 +157,7 @@ class App():
                             successesHist += 1
                         else:
                             falsePositivesHist += 1
-                    if (edgeChange < threshold):
+                    if (edgeChange > threshold):
                         print(str(f) + " edge " + str(edgeChange))
                         if cuts.__contains__(f):
                             successesEdge += 1
@@ -147,8 +169,8 @@ class App():
                     if ch == ord(' '):
                         time.sleep(1)
                     f += 1
-                file = open(test + "results.txt","a+")
-                file.write('Threshold: ' + str(threshold) + ', Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM\n')
+                file = open(test + "results" + testtype1 + testtype2 + ".txt","a+")
+                file.write('Threshold: ' + str(threshold) + ', Histogram comparison method:' + testtype1 + ', Canny edge comparison method:' + testtype2 + '\n')
                 file.write('Histogram successes: ' + str(successesHist) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesHist / len(cuts)) + '\n')
                 file.write('Histogram false positives: ' + str(falsePositivesHist) + '\n')
                 file.write('Canny Edge successes: ' + str(successesEdge) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesEdge / len(cuts)) + '\n')

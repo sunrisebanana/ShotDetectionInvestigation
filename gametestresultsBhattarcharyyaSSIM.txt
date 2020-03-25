@@ -136,5 +136,3 @@ Histogram successes: 0 out of 4, percentage: 0.0
 Histogram false positives: 0
 Canny Edge successes: 4 out of 4, percentage: 1.0
 Canny Edge false positives: 2678
-
-

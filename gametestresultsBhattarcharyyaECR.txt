@@ -1,0 +1,140 @@
+Threshold: 0.0, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 3592
+
+
+Threshold: 0.05, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 2715
+
+
+Threshold: 0.1, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 2511
+
+
+Threshold: 0.15, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 2250
+
+
+Threshold: 0.2, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 1658
+
+
+Threshold: 0.25, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 789
+
+
+Threshold: 0.3, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 173
+
+
+Threshold: 0.35, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 12
+
+
+Threshold: 0.4, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 7
+
+
+Threshold: 0.45, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3592
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 3
+
+
+Threshold: 0.5, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 3382
+Canny Edge successes: 4 out of 4, percentage: 1.0
+Canny Edge false positives: 2
+
+
+Threshold: 0.55, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 2227
+Canny Edge successes: 2 out of 4, percentage: 0.5
+Canny Edge false positives: 0
+
+
+Threshold: 0.6, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 4 out of 4, percentage: 1.0
+Histogram false positives: 541
+Canny Edge successes: 1 out of 4, percentage: 0.25
+Canny Edge false positives: 0
+
+
+Threshold: 0.65, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 3 out of 4, percentage: 0.75
+Histogram false positives: 187
+Canny Edge successes: 1 out of 4, percentage: 0.25
+Canny Edge false positives: 0
+
+
+Threshold: 0.7, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 2 out of 4, percentage: 0.5
+Histogram false positives: 25
+Canny Edge successes: 1 out of 4, percentage: 0.25
+Canny Edge false positives: 0
+
+
+Threshold: 0.75, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 2 out of 4, percentage: 0.5
+Histogram false positives: 1
+Canny Edge successes: 0 out of 4, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.8, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 1 out of 4, percentage: 0.25
+Histogram false positives: 0
+Canny Edge successes: 0 out of 4, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.85, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 1 out of 4, percentage: 0.25
+Histogram false positives: 0
+Canny Edge successes: 0 out of 4, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.9, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 0 out of 4, percentage: 0.0
+Histogram false positives: 0
+Canny Edge successes: 0 out of 4, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.95, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:ECR
+Histogram successes: 0 out of 4, percentage: 0.0
+Histogram false positives: 0
+Canny Edge successes: 0 out of 4, percentage: 0.0
+Canny Edge false positives: 0
+
+
