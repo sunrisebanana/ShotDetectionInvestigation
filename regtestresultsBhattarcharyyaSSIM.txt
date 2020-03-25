@@ -1,140 +1,140 @@
-Threshold: 0.0, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 9
+Threshold: 0.0, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 3335
 Canny Edge successes: 0 out of 28, percentage: 0.0
 Canny Edge false positives: 0
 
 
-Threshold: 0.05, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 7
+Threshold: 0.05, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 3335
 Canny Edge successes: 0 out of 28, percentage: 0.0
 Canny Edge false positives: 0
 
 
-Threshold: 0.1, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 2
+Threshold: 0.1, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 3335
 Canny Edge successes: 0 out of 28, percentage: 0.0
 Canny Edge false positives: 0
 
 
-Threshold: 0.15, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
+Threshold: 0.15, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 3335
+Canny Edge successes: 0 out of 28, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.2, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 3335
+Canny Edge successes: 0 out of 28, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.25, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 3330
+Canny Edge successes: 0 out of 28, percentage: 0.0
+Canny Edge false positives: 0
+
+
+Threshold: 0.3, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 28 out of 28, percentage: 1.0
+Histogram false positives: 2787
+Canny Edge successes: 0 out of 28, percentage: 0.0
+Canny Edge false positives: 1
+
+
+Threshold: 0.35, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 27 out of 28, percentage: 0.9642857142857143
+Histogram false positives: 2271
+Canny Edge successes: 1 out of 28, percentage: 0.03571428571428571
+Canny Edge false positives: 19
+
+
+Threshold: 0.4, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 27 out of 28, percentage: 0.9642857142857143
+Histogram false positives: 1180
+Canny Edge successes: 1 out of 28, percentage: 0.03571428571428571
+Canny Edge false positives: 70
+
+
+Threshold: 0.45, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 27 out of 28, percentage: 0.9642857142857143
+Histogram false positives: 447
+Canny Edge successes: 3 out of 28, percentage: 0.10714285714285714
+Canny Edge false positives: 116
+
+
+Threshold: 0.5, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 24 out of 28, percentage: 0.8571428571428571
+Histogram false positives: 225
+Canny Edge successes: 4 out of 28, percentage: 0.14285714285714285
+Canny Edge false positives: 154
+
+
+Threshold: 0.55, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 21 out of 28, percentage: 0.75
+Histogram false positives: 203
+Canny Edge successes: 5 out of 28, percentage: 0.17857142857142858
+Canny Edge false positives: 207
+
+
+Threshold: 0.6, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 19 out of 28, percentage: 0.6785714285714286
+Histogram false positives: 172
+Canny Edge successes: 8 out of 28, percentage: 0.2857142857142857
+Canny Edge false positives: 252
+
+
+Threshold: 0.65, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 15 out of 28, percentage: 0.5357142857142857
+Histogram false positives: 169
+Canny Edge successes: 9 out of 28, percentage: 0.32142857142857145
+Canny Edge false positives: 284
+
+
+Threshold: 0.7, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 11 out of 28, percentage: 0.39285714285714285
+Histogram false positives: 166
+Canny Edge successes: 12 out of 28, percentage: 0.42857142857142855
+Canny Edge false positives: 355
+
+
+Threshold: 0.75, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 7 out of 28, percentage: 0.25
+Histogram false positives: 132
+Canny Edge successes: 14 out of 28, percentage: 0.5
+Canny Edge false positives: 442
+
+
+Threshold: 0.8, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 4 out of 28, percentage: 0.14285714285714285
 Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
+Canny Edge successes: 16 out of 28, percentage: 0.5714285714285714
+Canny Edge false positives: 621
 
 
-Threshold: 0.2, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.25, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.3, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.35, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.4, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.45, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.5, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 1
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.55, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 3
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.6, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
+Threshold: 0.85, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 3 out of 28, percentage: 0.10714285714285714
 Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
+Canny Edge successes: 20 out of 28, percentage: 0.7142857142857143
+Canny Edge false positives: 899
 
 
-Threshold: 0.65, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
+Threshold: 0.9, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 2 out of 28, percentage: 0.07142857142857142
 Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
+Canny Edge successes: 24 out of 28, percentage: 0.8571428571428571
+Canny Edge false positives: 1494
 
 
-Threshold: 0.7, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
+Threshold: 0.95, Histogram comparison method:Bhattarcharyya, Canny edge comparison method:SSIM
+Histogram successes: 2 out of 28, percentage: 0.07142857142857142
 Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.75, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.8, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.85, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.9, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
-
-
-Threshold: 0.95, Histogram comparison method: Bhattarcharyya, Canny edge comparison method: SSIM
-Histogram successes: 0 out of 28, percentage: 0.0
-Histogram false positives: 0
-Canny Edge successes: 0 out of 28, percentage: 0.0
-Canny Edge false positives: 0
+Canny Edge successes: 28 out of 28, percentage: 1.0
+Canny Edge false positives: 2531
 
 
