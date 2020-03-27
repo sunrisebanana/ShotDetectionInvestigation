@@ -164,7 +164,7 @@ class App():
                         
                         ax.plot(hist, color = color)
                         plt.xlim([0, 7])
-                    # plt.pause(0.000000000001)
+                    plt.pause(0.000000000001)
                     first = False
                     # if (histChange > biggestHistChange):
                     #     biggestHistChange = histChange
@@ -191,7 +191,7 @@ class App():
                         time.sleep(1)
                     f += 1
                 file = open(test + "results" + testtype1 + testtype2 + ".txt","a+")
-                file.write('Threshold: ' + str(threshold) + ', Histogram comparison method:' + testtype1 + ', Canny edge comparison method:' + testtype2 + '\n')
+                file.write('Threshold: ' + str(threshold) + ', Histogram comparison method:' + testtype1 + ', Canny edge comparison method: ' + testtype2 + '\n')
                 file.write('Histogram successes: ' + str(successesHist) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesHist / len(cuts)) + '\n')
                 file.write('Histogram false positives: ' + str(falsePositivesHist) + '\n')
                 file.write('Canny Edge successes: ' + str(successesEdge) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesEdge / len(cuts)) + '\n')
