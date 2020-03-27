@@ -15,6 +15,8 @@ import copy
 import numpy as np
 import cv2 as cv
 import time
+from matplotlib import pyplot as plt
+import warnings
 
 # built-in modules
 import sys
@@ -50,9 +52,15 @@ class App():
 
     
     def run(self):
+        warnings.filterwarnings("ignore")
+        plt.show()
+        fig = plt.figure()
         tests = [
             "regtest",
-            "gametest"
+            "gametest",
+            "gametest2",
+            "gametest3",
+            "gametest4",
         ]
         testtype1 = "Bhattarcharyya"
         testtype2 = "ECR"
@@ -60,22 +68,12 @@ class App():
             file = open(test + "results" + testtype1 + testtype2 + ".txt", "w")
             file.close()
             for threshold in [x/20 for x in range(0, 20)]:
-                hsv_map = np.zeros((180, 256, 3), np.uint8)
-                h, s = np.indices(hsv_map.shape[:2])
-                hsv_map[:,:,0] = h
-                hsv_map[:,:,1] = s
-                hsv_map[:,:,2] = 255
-                hsv_map = cv.cvtColor(hsv_map, cv.COLOR_HSV2BGR)
+            # for threshold in [0.4]:
                 font                   = cv.FONT_HERSHEY_SIMPLEX
                 bottomLeftCornerOfText = (10,20)
                 fontScale              = 1
                 fontColor              = (255,255,255)
                 lineType               = 2
-
-                cv.imshow('hsv_map', hsv_map)
-
-                cv.namedWindow('hist', 0)
-                self.hist_scale = 10
 
                 histChange, edgeChange = 0, 0
                 first = True
@@ -103,21 +101,24 @@ class App():
                     hsv[dark] = 0
                     if not first:
                         prevFrameH = copy.deepcopy(h)
-                        h = cv.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+                        h = cv.calcHist([hsv], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
                         histChange = cv.compareHist(prevFrameH, h, method=3)
                         # histChange = ssim(prevFrameH, h)
                         # histChange = cv.EMD(h, prevFrameH, distType=0)
                         
                         prevFrame = copy.deepcopy(currFrame)
-                        currFrame = copy.deepcopy(frame)
+                        currFrame = copy.deepcopy(small)
                         gray_image = cv.cvtColor(currFrame, cv.COLOR_BGR2GRAY)
-                        edges = cv.Canny(gray_image, 0, 200)
+                        edges = cv.Canny(gray_image, 100, 200)
                         gray_image2 = cv.cvtColor(prevFrame, cv.COLOR_BGR2GRAY)
-                        edge2 = cv.Canny(gray_image2, 0, 200)
+                        edge2 = cv.Canny(gray_image2, 100, 200)
                         edgeChange = ECR(edges, edge2, prevFrame.shape[1], prevFrame.shape[0], )
 
+                        # prevEdges = copy.deepcopy(edges)
                         # edges = cv.Canny(frame,150,200)
-                        #edgeChange = cv.compareHist(prevEdges, edges, method=0)
+                        # edgeChange = ssim(prevEdges, edges)
+
+                        # edgeChange = cv.compareHist(prevEdges, edges, method=0)
                         
                         cv.putText(edges, str(f) + " " + str(edgeChange), 
                             bottomLeftCornerOfText, 
@@ -127,23 +128,43 @@ class App():
                             lineType)
                         cv.imshow("edges", edges)
                     else:
-                        h = cv.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-                        edges = cv.Canny(frame,0,200)
-                        currFrame = copy.deepcopy(frame)
+                        h = cv.calcHist([hsv], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
+                        edges = cv.Canny(small,0,200)
+                        currFrame = copy.deepcopy(small)
                         cv.imshow("edges", edges)
 
-                    h = np.clip(h*0.005*self.hist_scale, 0, 1)
-                    vis = hsv_map*h[:,:,np.newaxis] / 255.0
-                    img = cv.putText(vis, str(histChange), (10,500), cv.FONT_HERSHEY_SIMPLEX, 4,(255,255,255), 2, 0)
+                    # h = np.clip(h*0.005*self.hist_scale, 0, 1)
+                    # vis = hsv_map*h[:,:,np.newaxis] / 255.0
+                    # img = cv.putText(h, str(histChange), (10,500), cv.FONT_HERSHEY_SIMPLEX, 4,(255,255,255), 2, 0)
                     
-                    cv.putText(img, str(f) + " " + str(histChange), 
-                        bottomLeftCornerOfText, 
-                        font, 
-                        fontScale,
-                        fontColor,
-                        lineType)
-                    cv.imshow('hist', img)
-                
+                    # cv.putText(img, str(f) + " " + str(histChange), 
+                    #     bottomLeftCornerOfText, 
+                    #     font, 
+                    #     fontScale,
+                    #     fontColor,
+                    #     lineType)
+                    # cv.imshow('hist', img)
+                    
+                    
+                    ax = fig.add_subplot(1,1,1)
+
+                    features = []
+                    chans = cv.split(small)
+                    colors = ("b", "g", "r")
+                    # loop over the image channels
+                    for line in ax.lines:
+                        ax.lines.pop(0)
+                    for (chan, color) in zip(chans, colors):
+                        # create a histogram for the current channel and
+                        # concatenate the resulting histograms for each
+                        # channel
+                        hist = cv.calcHist([chan], [0], None, [8], [0, 256])
+                        features.extend(hist)
+                        # plot the histogram
+                        
+                        ax.plot(hist, color = color)
+                        plt.xlim([0, 7])
+                    # plt.pause(0.000000000001)
                     first = False
                     # if (histChange > biggestHistChange):
                     #     biggestHistChange = histChange
@@ -175,6 +196,7 @@ class App():
                 file.write('Histogram false positives: ' + str(falsePositivesHist) + '\n')
                 file.write('Canny Edge successes: ' + str(successesEdge) + ' out of ' + str(len(cuts)) + ', percentage: ' + str(successesEdge / len(cuts)) + '\n')
                 file.write('Canny Edge false positives: ' + str(falsePositivesEdge) + '\n\n\n')
+        
 
 
 if __name__ == '__main__':
