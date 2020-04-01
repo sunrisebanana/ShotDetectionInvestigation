@@ -4,7 +4,7 @@
 \usepackage{blindtext, fancyhdr}
 \pagestyle{fancy}
 
-\title{Cut Detection Survey and Analysis for Long Form Video Game Streams \\ Prof. Prosenjit Bose}
+\title{Shot Detection Survey and Analysis for Long Form Video Game Streams \\ Prof. Prosenjit Bose}
 \author{Jaime Herzog\\ 101009321 \\ jaimeherzog@cmail.carleton.ca}
 
 \fancyhf{}
@@ -18,21 +18,28 @@
 \clearpage
 
 \section{Abstract}
-Shot Boundary Detection, or simply Shot Detection, is a fundamental part of research in the broader field of video processing, used for essential video analysis tasks such as 
+Shot Boundary Detection, or simply Shot Detection, is a fundamental part of research in the broader field of video analytics, used for essential video analysis tasks such as 
 video indexing and content-based video retrieval. For professional video game live streamers, who create hours of continuous content with significant downtime, identifying
 cuts in their streams is an important first step for automatically generating condensed stream highlights. In this project, I have summarized the nomenclature and methodologies
 established in the academic canon for Shot Detection research, implemented a sample of the most common approaches, Colour Histogram comparison and Edge Change Ratio using Canny 
 Edge Detection, and compared their effectiveness when used on video game live stream content, as well as establishing methodological challenges to this new content form.
 \section{Acknowledgements}
-Thank you to my project supervisor Professor Prosenjit Bose for his help and supervision throughout this project.
+Thank you to my project supervisor Professor Prosenjit Bose for his help and direction throughout this project.
 \clearpage
 
 \tableofcontents
 \clearpage
 
 \section{Motivation}
-\subsection{Why cut detection?}
-\Blindtext
+\subsection{Why Shot Detection?}
+    With the proliferation of internet connectivity in recent years, there has been a massive increase in the volume of video on the internet.
+With this growth, an industry built around the creation, hosting and sharing of video content grew as well, with YouTube alone having an annual revenue of over US\$15 billion
+dollars~\cite{youtube}. Portable devices increase the accessibility for the creation and uploading of video content, and the combination of the 
+massive social network surrounding content creation, and the massive entertainment 
+
+
+
+\subsection{}
 \clearpage
 
 \section{Methodology}
@@ -43,8 +50,8 @@ Thank you to my project supervisor Professor Prosenjit Bose for his help and sup
 \blindtext
 \clearpage
 
-\section{References}
-\blindtext
+\bibliography{mybib}{}
+\bibliographystyle{plain}
 \clearpage
 
 \end{document}
