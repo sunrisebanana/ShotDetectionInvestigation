@@ -10,11 +10,14 @@ two windows: one for canny edge detection, one for colour histogram, then view c
 run experiments to validate threshold conjectures
 
 https://www.researchgate.net/publication/4290551_Shot_Boundary_Detection_by_a_Hierarchical_Supervised_Approach
+
 A Survey on Visual Content-Based Video, Indexing and Retrieval, Weiming Hu, Senior Member, IEEE, Nianhua Xie, Li Li, Xianglin Zeng, and Stephen Maybank
 
  J. Yuan, H. Wang, L. Xiao, W. Zheng, J. Li, F. Lin, and B. Zhang,
 “A formal study of shot boundary detection,” IEEE Trans. Circuits Syst. Video Technol., vol. 17, no. 2, pp. 168–186, Feb.
 2007
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.88.8255&rep=rep1&type=pdf
+
 https://www-nlpir.nist.gov/projects/tvpubs/tvpapers03/ramonlull.paper.pdf
 
 so far, MSE gives way too unpredictable numbers to be reliable. SSIM seems to be somewhat consistent for the edges with some issues,
@@ -36,3 +39,9 @@ https://www.researchgate.net/publication/221259378_Video_Shot_Cut_Detection_usin
 Video Shot Cut Detection Using Adaptive
 Thresholding
 Y. Yusoff, W. Christmas and J. Kittler
+
+http://marco.uminho.pt/disciplinas/UCAN/BD/Artigos%20Recomendados/IEEEMMMagazinFinal.pdf
+Applications of Video-Content Analysis and Retrieval
+
+https://www.theverge.com/2020/2/3/21121207/youtube-google-alphabet-earnings-revenue-first-time-reveal-q4-2019
+youtube is huge
