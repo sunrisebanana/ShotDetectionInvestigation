@@ -76,8 +76,37 @@ video segmentation.
 \clearpage
 
 \section{Methodology}
+\subsection{What is Video Game Live Streaming?}
+Video game live streaming is the activity of a person recording themselves playing a game to a live audience. Popularized in the mid 2010s primarily on Twitch, it started
+as just people who enjoyed playing games playing for people to build an audience and have fun playing games. By 2014, Twitch had more traffic than HBO's online streaming 
+service~\cite{graziano_2014}, and it had begun to become more and more clear that the popularity of these live streams could generate significant revenue. As the community grew,
+so did avenues of revenue for streamers, and before long there were more than a handful of video game livestreamers generating significant income, with many more able to make a 
+living off of streaming full time.
+
+
+
+Currently, the profession of video game live streaming is appealing to many, but ultimately extremely inaccessable. This is due to the fact that a streamer must have an 
+established and loyal community which supports the streamer with paid subscriptions through Twitch, donations, or via Patreon. Other sources of revenue include:
+\begin{itemize}
+    \item Salaries from esports teams such as Cloud 9 or TSM, although these sponsorships are reserved for the most popular or skilled streamers. 
+    \item YouTube channels which host short form highlight videos. The problem with this was touched upon in the Motivation section, but to emphasize, 
+    it is very time consuming for streamers to manually curate highlights and create entertaining videos on top of streaming consistent hours to grow their 
+    community, and for new streamers who have jobs on top of their streaming, this becomes an insurmountable barrier of entry.
+    \item Sponsored content, such as a game studio paying a streamer to pay their game. Again, this type of revenue is only available to those select streamers
+    who already have an established audience, as the paid content must be a viable investment to the sponsors.
+\end{itemize}
+This means that when a streamer is starting out, they must minimize their hours and keep a full time job, as it can take months or years before streaming 
+income becomes viable full time. This leaves even less time for editing highlights of streams for increased reach, which further limits the accessibility, 
+of building the brand necessary to be successful as a professional live streamer,  as discussed in the Motivation section.
+
 \subsection{What is Shot Boundary Detection?}
-While the number of possible types of scene transitions is quite large, in practice, the vast majority of all transitions are either hard cuts, fades, or dissolves. 
+We will begin by summarizing the problem of Shot Boundary Detection, and then we will take an overview of the formal schema for this problem as defined in Yuan et al.~\cite{survey1}
+and how they must be modified to fit into the video game live stream content format.
+
+Shot Boundary Detection is the broad problem of trying to build a system which automatically detects the beginning or end of a shot or scene, which for traditional 
+film would be defined more precisely as an uninterrupted sequence of images captured by a single camera action. 
+While the number of possible types of scene transitions is quite large, in practice, the vast majority of all transitions are either hard cuts, fades, or dissolves 
+(at least when it comes to traditionally edited movies or video). 
 \clearpage
 
 \section{Results}
