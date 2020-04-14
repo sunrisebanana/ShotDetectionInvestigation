@@ -12,6 +12,7 @@ run experiments to validate threshold conjectures
 https://www.researchgate.net/publication/4290551_Shot_Boundary_Detection_by_a_Hierarchical_Supervised_Approach
 
 A Survey on Visual Content-Based Video, Indexing and Retrieval, Weiming Hu, Senior Member, IEEE, Nianhua Xie, Li Li, Xianglin Zeng, and Stephen Maybank
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.295.6377&rep=rep1&type=pdf
 
  J. Yuan, H. Wang, L. Xiao, W. Zheng, J. Li, F. Lin, and B. Zhang,
 “A formal study of shot boundary detection,” IEEE Trans. Circuits Syst. Video Technol., vol. 17, no. 2, pp. 168–186, Feb.
@@ -45,3 +46,11 @@ Applications of Video-Content Analysis and Retrieval
 
 https://www.theverge.com/2020/2/3/21121207/youtube-google-alphabet-earnings-revenue-first-time-reveal-q4-2019
 youtube is huge
+
+Types of "camera's" in games:
+
+gameplay
+menu
+cutscene
+
+cuts: any movement between these types of cameras, including "resets"

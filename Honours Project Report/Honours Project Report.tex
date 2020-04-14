@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{blindtext, fancyhdr}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \pagestyle{fancy}
 
 \title{Cut Detection Survey and Analysis for Long Form Video Game Streams \\ Prof. Prosenjit Bose}
@@ -103,10 +104,86 @@ of building the brand necessary to be successful as a professional live streamer
 We will begin by summarizing the problem of Shot Boundary Detection, and then we will take an overview of the formal schema for this problem as defined in Yuan et al.~\cite{survey1}
 and how they must be modified to fit into the video game live stream content format.
 
-Shot Boundary Detection is the broad problem of trying to build a system which automatically detects the beginning or end of a shot or scene, which for traditional 
+Shot Boundary Detection is the problem of how to automatically detect the beginning or end of a shot or scene, which for traditional 
 film would be defined more precisely as an uninterrupted sequence of images captured by a single camera action. 
-While the number of possible types of scene transitions is quite large, in practice, the vast majority of all transitions are either hard cuts, fades, or dissolves 
-(at least when it comes to traditionally edited movies or video). 
+While the number of possible types of scene transitions is quite large, in practice, the vast majority of all transitions are either hard cuts, fades,
+or dissolves (at least when it comes to traditionally edited movies or video). 
+
+\subsubsection{Defining a Cut in Video Game Live Streams}
+We will now define what we will use as cuts in Video Game Live Streams between two categories:
+\begin{enumerate}
+    \item Scene transitions initiated by the streamer themselves, such as when they are transitioning from a full face camera to a game, or from game to game. Generally, 
+    these are specially made transitions that match the streamer's branded overlay, and typically are fades or dissolves. Since these cover the whole screen and are 
+    similar in structure to conventional dissolves or fades in film, we will not be focusing on these types of transitions in this project.
+    \item Game transitions, i.e. transitions between different camera states in the game. Generally, in video games, there are three main camera states:
+    \begin{enumerate}
+        \item Menus. Players begin the game on a menu called the main menu, where they select one of various options, then start the gameplay. Typically, the main menu
+        is a simple straight up view of a series of possible selections. These views tend to be relatively static and are rarely areas of concern for false positives for 
+        any robust cut detection algorithm.
+        \item Gameplay. When players make their selection on the main menu, the game begins, which typically involves the camera sshifting from the static menu display to a 
+        view of the player themselves. This view can have many different perspectives, but we will sum them up into two categories: Bird's eye view, and first/third person view.
+        
+        In the bird's eye view, the camera sits in a fixed spot, observing the player and the area the player can maneuver in, which we will call the map. The camera only 
+        moves when the player is exploring an area of the map that is out of the scope of the current camera. Generally, for games that use these fixed birds eye view 
+        cameras, false positives are rare, as the backgrounds are relatively constant. Genres of games that have these birds eye view cameras include fighting games such as Street Fighter, 
+        and roguelikes such as The Binding of Isaac. 
+
+        In the first/third person view, the camera is in the perspective of the player themselves, either showing the player what the player-character would literally see 
+        in the case of the first person view, or showing an over the shoulder view in the case of the third person view. Typical genres of games that have these views 
+        include first person shooters such as Call of Duty. In the case of games with these cameras, there is a serious problem with false positives, as there is significant
+        camera movement whenever the player changes directions, which in practice is very frequently. These issues will be discussed more in the Results section.
+        \item Cutscenes. Many games use cinematic cutscenes as a way to progress the plot. In these cutscenes, the camera frequently breaks from the view more typical 
+        in the gameplay sections, utilizing camera techniques more reminiscent of film cameras. 
+    \end{enumerate}
+\end{enumerate}
+Thus, we consider all transitions between the above three camera states as cuts, and we also include all cuts used in cinematic cutscenes as cuts.
+\subsection{Defining our approach to detecting cuts}
+For this section, we will follow closely the formal definition of shot boundary detection as outlined in Yuan et al~\cite{survey1}, and we will describe our approaches to these 
+theoretical problems. Any detection technique consists of the following three core elements: the representation of visual content, the evaluation of visual content 
+representation, and the thresholds for classifying discontinuity.
+\begin{enumerate}
+    \item Representation of visual content: First we define $f_i$ as the $i$th frame, where $i \in 1 .. N$, where $N$ is the number of frames in the video. There are many 
+    different strategies for representing $f_i$, with the most straightforward being a direct analysis of each pixel value of the image. However, these data structures get 
+    extremely large as image resolution increases, and measuring dissimilarity becomes extremely more expensive as a result. A more popular approach is to extract 
+    some type of visual feature from each frame and condense our representation. More precisely, we must find a mapping from the image space $Q$ to the feature space $F$,
+    i.e. from frame $f_i$ to the feature structure $s_i \in F$. There are many possible strategies for feature detection, but for the purposes of this project we will 
+    analyze the use of a colour histogram, as well as the Canny edge detection algorithm. 
+
+    Our colour histogram functions as follows: We define our number of buckets $B$, which corresponds to a range of RGB values in each RGB channel. For our histogram, we use 
+    8 bins, with each taking up 32 RGB values. Thus, we have an 8x8x8 3D array, and for each pixel in the image, we identify its RGB values, and place it in its appropriate 
+    bucket. We use 8 buckets to optimize the expense of the representation evaluation, balanced out with image accuracy. Having a low number of buckets also helps to reduce 
+    false positives caused by movement, as the small changes will be less pronounced as a full cut. 
+
+    For our Canny edge feature structures, we simply use the Canny edge detection algorithm implemented in the Python OpenCV package. For more information on the Canny edge 
+    detection algorithm, see~\cite{canny}. For our Hysteresis Thresholding, we use the values of $0$ to $200$, a relatively generous threshold, in order to detect as many edges 
+    as possible for our Edge Change Ratio. 
+    \item Evaluation of visual content representation: In order to find cuts, we must calculate the discontinuity value between frames. To do this, we must calculate 
+    $d_i \in 0 .. 1$, such that $d_i$ is the discontinuity or distance between $s_i$ and $s_{i-1}$. To do this, we experimented with multiple approaches, iterating through 
+    both unconventional attempts such as the Structural Similarity Index for comparing Canny edge feature structures, to using established similarity/distance measures such 
+    as the Bhattacharyya Distance for measuring colour histograms, and the Edge Change Ratio for Canny edge features.
+
+    Bhattacharyya Distance is calculated as follows: 
+    $$d_i(s_i) = \sqrt{1 - \frac{1}{\sqrt{s_is_{i-1}B^2}}\sum_{I}\sqrt{s_i(I) \cdot s_{i-1}(I)}}$$
+    
+    We calculate the Edge Change Ratio by:
+    \begin{enumerate}
+        \item Count number of edge pixels in $s_i$ and $s_{i-1}$
+        \item Dilate and invert edges on $s_i$ and $s_{i-1}$
+        \item Compute then count pixels out and in 
+        \item Reach our final result by taking the maximum between pixels out and in (see figure 2).~\cite{ecr}
+    \end{enumerate}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1.0\textwidth]{fig2}
+        \caption{Calculation graph of the Edge Change Ratio~\cite{ecr}}
+        \label{Edge Change Ratio}
+    \end{figure}
+    \item Thresholds for classifying continuity: Finally, we must determine at what value of $d_i$ means that $f_i$ is a cut. There are many approaches to this problem, with 
+    some using a local threshold, which is determined by the contextual distance values in the region of $f_i$~\cite{adaptivethresholding}, and more recently neural networks 
+    have been employed to classify shots~\cite{nnthresholding}. For the purposes of this project, however, we will use a global threshold, i.e. a fixed value which when 
+    exceeded by $d_i$, we consider $f_i$ to be a frame on which a cut occurs. In order to determine the optimal global threshold for each type of media, we perform performance
+    tests on each piece of media and report the results on the best preforming global threshold.
+\end{enumerate}
 \clearpage
 
 \section{Results}
