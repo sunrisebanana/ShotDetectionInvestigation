@@ -54,3 +54,57 @@ menu
 cutscene
 
 cuts: any movement between these types of cameras, including "resets"
+
+SSIM regtest
+threshold: 0.75
+recall: 0.5
+precision: 0.0307
+f1: 0.0579
+
+ecr regtest 
+threshold: 0.75
+recall: 0.8929
+precision: 0.9259
+f1: 0.9091
+
+hist regtest
+threshold: 0.3
+recall: 0.9643
+precision: 0.9310 
+f1: 0.9474
+
+hist birds eye
+threshold:  0.4, 0.6
+recall: 0.8889
+precision: 0.8889
+f1: 0.8889
+
+ecr birds eye
+threshold: 0.45, 0.6
+recall: 0.8889
+precision: 0.7273
+f1: 0.8
+
+hist fps
+threshold: 0.5, 0.15
+recall: 0.6667
+precision: 0.0784
+f1: 0.1404
+
+hist fps
+threshold: 0.5, 0.6
+recall: 0.3333
+precision: 0.2500
+f1: 0.2857
+
+ecr fps
+threshold: 0.75, 0.5 
+recall: 0.5000
+precision: 0.25
+f1: 0.3333
+
+ecr fps 2
+threshold: 0.75, 0.55
+recall: 0.3333
+precision: 0.4000
+f1: 0.3636
